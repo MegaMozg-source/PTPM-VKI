@@ -1,5 +1,7 @@
 import logging
 import math
+import decimal
+from decimal import Decimal
 
 FIELD_SIZE = 100
 ERROR_NUMBER = (-1, -1)
@@ -9,10 +11,10 @@ ERROR_TEXT = (-2, -2)
 def get_triangle_info(str_a, str_b, str_c):
 
     try:
-        a = float(str_a)
-        b = float(str_b)
-        c = float(str_c)
-    except (TypeError, ValueError):
+        a = Decimal(str_a)
+        b = Decimal(str_b)
+        c = Decimal(str_c)
+    except (TypeError, ValueError, decimal.InvalidOperation):
         logging.warning(
             "Неуспешный запрос: A=%s, B=%s, C=%s - невалидные данные (не числа)",
             str_a, str_b, str_c,
@@ -43,7 +45,7 @@ def get_triangle_info(str_a, str_b, str_c):
 
 
     try:
-        coords = calculate_coordinates(a, b, c)
+        coords = calculate_coordinates(float(a), float(b), float(c))
     except Exception:
 
         logging.exception("Неуспешный запрос: A=%s, B=%s, C=%s - сбой при расчёте координат", str_a, str_b, str_c)
