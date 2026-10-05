@@ -24,15 +24,30 @@ def main():
     logging.info("Логгер сконфигурирован, приложение запущено")
 
 
-    str_a = input("Сторона A = ").strip()
-    str_b = input("Сторона B = ").strip()
-    str_c = input("Сторона C = ").strip()
+    while True:
+        print("\n--- Новый треугольник (введите 'q' для выхода) ---")
 
+        str_a = input("Сторона A = ").strip()
+        if str_a.lower() == "q":
+            logging.info("Пользователь завершил работу")
+            print("Выход.")
+            break
 
-    kind, coords = triangle.get_triangle_info(str_a, str_b, str_c)
-    print("Тип треугольника:", kind)
-    print("Координаты вершин:", coords)
+        str_b = input("Сторона B = ").strip()
+        if str_b.lower() == "q":
+            logging.info("Пользователь завершил работу")
+            print("Выход.")
+            break
 
+        str_c = input("Сторона C = ").strip()
+        if str_c.lower() == "q":
+            logging.info("Пользователь завершил работу")
+            print("Выход.")
+            break
+
+        kind, coords = triangle.get_triangle_info(str_a, str_b, str_c)
+        print("Тип треугольника:", kind)
+        print("Координаты вершин:", coords)
 
 if __name__ == "__main__":
     main()
