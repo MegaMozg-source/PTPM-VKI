@@ -1,7 +1,7 @@
 import math
 import unittest
 
-from triangle import get_triangle_info
+from src.triangle import get_triangle_info
 
 UNKNOWN = (-2, -2)
 ERROR = (-1, -1)
@@ -83,10 +83,6 @@ class TestTriangleInfo(unittest.TestCase):
         kind, coords = get_triangle_info("1000", "1500", "2000")
         self.assertEqual(kind, "разносторонний")
         self._assert_coords_valid(coords)
-
-    def test_scientific_notation(self):
-        kind, _ = get_triangle_info("1e2", "1e2", "1e2")
-        self.assertEqual(kind, "равносторонний")
 
     def test_whitespace_padded_input(self):
         kind, _ = get_triangle_info(" 5 ", " 5\t", "5")

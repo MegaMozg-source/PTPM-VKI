@@ -1,5 +1,5 @@
 import unittest
-from Delivery import calculate_delivery_cost
+from src.Delivery import calculate_delivery_cost
 
 class TestDelivery(unittest.TestCase):
     def test_valid_standard_delivery(self):
