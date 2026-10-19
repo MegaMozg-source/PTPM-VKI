@@ -19,3 +19,6 @@ class Database:
     def delete_record(self, a, b, c):
         self.cursor.execute("DELETE FROM triangles WHERE a=? AND b=? AND c=?", (a, b, c))
         self.conn.commit()
+
+    def close(self):
+        self.conn.close()
