@@ -41,6 +41,10 @@ class TestConverter(unittest.TestCase):
         self.assertEqual(Converter.do(-94.5), -2000)
         self.assertEqual(Converter.do(-1000.0), -2000)
 
+    def test_between_ranges_raises_exception(self):
+        with self.assertRaises(ValueError):
+            Converter.do(-30.45)
+
 
 if __name__ == '__main__':
     unittest.main()
